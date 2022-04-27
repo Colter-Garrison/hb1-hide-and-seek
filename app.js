@@ -36,13 +36,14 @@ boulderButton.addEventListener('click', () => {
 });
 
 function handleGuess(correctSpot, userGuess) {
-    // remove face class from shed container, boulder container, tree container
     treeContainer.classList.remove('face');
     shedContainer.classList.remove('face');
     boulderContainer.classList.remove('face');
+    
+    const correctHidingPlaceEl = document.getElementById(`${correctSpot}-container`);
+    correctHidingPlaceEl.classList.add('face');
 
     totalGuesses++;
-    // const correctAnswer = document.getElementById(`${correctSpot}-container`);
     if (correctSpot === userGuess) {
         correctGuesses++;
         winsEl.textContent = `${correctGuesses}`;
